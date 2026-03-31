@@ -1,0 +1,30 @@
+datasource db {
+  // The database provider determines which SQL dialect Prisma will generate
+  provider     = "postgresql"
+  // Relation mode defines how relations are enforced; "foreignKeys" means Prisma handles them without foreign keys
+  relationMode = "foreignKeys"
+}
+
+generator client {
+  // The generator provider specifies which Prisma client implementation to use
+  provider            = "prisma-client"
+  // Output path where the generated client will be written
+  output              = "../prisma"
+  // Engine type defines the runtime engine; "client" is the standard Node.js client
+  engineType          = "client"
+  // File extension used for imports in the generated client; here set to TypeScript
+  importFileExtension = "ts"
+}
+
+generator edge {
+  // The generator provider specifies which Prisma client implementation to use
+  provider            = "prisma-client"
+  // Output path where the edge‑optimized client will be written
+  output              = "../prisma/edge"
+  // Runtime defines the target environment; "vercel-edge" ensures compatibility with Vercel Edge functions
+  runtime             = "vercel-edge"
+  // Engine type defines the runtime engine; "client" is the standard Node.js client
+  engineType          = "client"
+  // File extension used for imports in the generated client; here set to TypeScript
+  importFileExtension = "ts"
+}
