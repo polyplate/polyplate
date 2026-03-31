@@ -1,0 +1,65 @@
+# Docker compose configuration for Sirketio project
+services:
+  # Database service
+  polyplate-db:
+    # Explicit container name (optional)
+    container_name: polyplate-db
+    # Use the latest official Postgres image
+    image: "postgres:latest"
+
+    # Restart automatically unless manually stopped
+    restart: unless-stopped
+
+    # Environment variables for Postgres initialization
+    environment:
+      # Database user
+      POSTGRES_USER: polyplate
+      # Database password
+      POSTGRES_PASSWORD: polyplate_pass
+      # Default database created at startup
+      POSTGRES_DB: polyplate_db
+
+    # Expose container ports to the host machine
+    ports:
+      # Map Postgres port 5432 inside container to host port 5432
+      - "5432:5432"
+
+    # Define persistent storage for Postgres data
+    volumes:
+      # Persist database data in a named Docker volume
+      - polyplate_db:/var/lib/postgresql
+
+    # Attach the service to a custom Docker network
+    networks:
+      # Connect Postgres service to the custom network
+      - polyplate_net
+
+  # Mailhog service
+  polyplate-mail:
+    # Explicit container name (optional)
+    container_name: polyplate-mail
+    # Use the latest official Mailhog image
+    image: mailhog/mailhog:latest
+
+    # Expose container ports to the host machine
+    ports:
+      # Map SMTP port 1025 inside container to host port 1025
+      - "1025:1025"
+      # Map Web UI port 8025 inside container to host port 8025
+      - "8025:8025"
+
+    # Attach the service to a custom Docker network
+    networks:
+      # Connect Mailhog service to the same custom network
+      - polyplate_net
+
+# Named volumes section
+volumes:
+  # Named volume for persisting Postgres database data
+  polyplate_db:
+
+# Custom networks section
+networks:
+  # Define a custom bridge network for inter-service communication
+  polyplate_net:
+    driver: bridge
