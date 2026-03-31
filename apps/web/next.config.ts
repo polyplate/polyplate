@@ -1,6 +1,6 @@
 import type { NextConfig } from "next"
 
-import { withTranslation } from "@obvia/translation/plugin"
+import { withTranslation } from "@polyplate/translation/plugin"
 
 /**
  * The framework configuration object

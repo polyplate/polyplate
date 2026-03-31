@@ -24,7 +24,15 @@
     "dev"           : "turbo dev",
     "lint"          : "turbo lint",
     "clean"         : "turbo clean && rimraf node_modules dist .turbo",
-    "test"          : "turbo test"
+    "test"          : "turbo test",
+    "script"        : "pnpm --filter web script",
+
+    "db:auth"       : "pnpm --filter web db:auth",
+    "db:generate"   : "pnpm --filter web db:generate",
+    "db:push"       : "pnpm --filter web db:push",
+    "db:studio"     : "pnpm --filter web db:studio",
+    "db:format"     : "pnpm --filter web db:format",
+    "db:sync"       : "pnpm --filter web db:sync"
   },
 
   "devDependencies"   : {
