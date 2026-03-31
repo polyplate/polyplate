@@ -98,7 +98,7 @@ scoop install mkcert
 
 ## Generate
 
-To create certificates for Obvia domains, run
+To create certificates for Polyplate domains, run
 ```bash
 mkcert "*.polyplate.dev" "polyplate.dev"
 ```
