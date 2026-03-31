@@ -1,0 +1,11 @@
+{
+  "extends"         : "@obvia/presets/react-config",
+  "compilerOptions" : {
+    "baseUrl" : ".",
+    "paths"   : {
+      "@polyplate/translation" : ["src"]
+    }
+  },
+  "include"         : ["."],
+  "exclude"         : ["dist", "build", "node_modules"]
+}
