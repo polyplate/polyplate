@@ -1,0 +1,64 @@
+# Define which folders are included in the monorepo workspace
+packages:
+  - "apps/*"          # Include all projects inside the "apps" folder
+  - "packages/*"      # Include all projects inside the "packages" folder
+
+# Define reusable catalogs for dependency ranges
+catalogs:
+  base:
+    next: ^16.2.1
+    react: ^19.2.4
+    react-dom: ^19.2.4
+    typescript: ^6.0.2
+  db:
+    prisma: ^7.6.0
+    '@prisma/client': ^7.6.0
+    '@prisma/config': ^7.6.0
+    '@prisma/adapter-pg': ^7.6.0
+    '@prisma/extension-accelerate': ^3.0.1
+    '@prisma/client-runtime-utils': ^7.6.0
+  type:
+    '@types/node': ^25.5.0
+    '@types/react': ^19.2.14
+    '@types/react-dom': ^19.2.3
+
+# Define dependencies that must always be built from source
+onlyBuiltDependencies:
+  - '@parcel/watcher'     # File system watcher used by Parcel bundler
+  - '@prisma/client'      # Prisma client library for database access
+  - '@prisma/engines'     # Prisma query engines required for runtime
+  - '@swc/core'           # SWC compiler core (used for fast JS/TS compilation)
+  - esbuild               # Fast JavaScript bundler and minifier
+  - prisma                # Prisma ORM main package
+  - sharp                 # High-performance image processing library
+  - workerd               # Worker runtime (used by Cloudflare Workers)
+
+# Define dependency overrides to enforce specific versions or catalog references
+overrides:
+  '@types/node': "catalog:type"
+  '@types/react': "catalog:type"
+  '@types/react-dom': "catalog:type"
+  eslint: "^10.1.0"
+  next: "catalog:base"
+  react: "catalog:base"
+  react-dom: "catalog:base"
+  typescript: "catalog:base"
+  baseline-browser-mapping: "^2.10.8"
+
+# Prevent dependency versions from being downgraded
+trustPolicy: no-downgrade
+
+# Ignore trust policy after 43,200 minutes (30 days)
+trustPolicyIgnoreAfter: 43200
+
+# Automatically install peer dependencies when required
+autoInstallPeers: true
+
+# Automatically link local workspace packages instead of installing duplicates
+linkWorkspacePackages: true
+
+# Allow installation at workspace root without warnings
+ignoreWorkspaceRootCheck: true
+
+# Allow using the newest package releases immediately (no waiting period)
+minimumReleaseAge: 0
