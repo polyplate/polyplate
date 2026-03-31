@@ -1,0 +1,16 @@
+{
+  "extends"         : "@obvia/presets/next-config",
+  "compilerOptions" : {
+    "baseUrl" : ".",
+    "paths"   : {
+      "@/*"                     : ["*"],
+      "@config/*"               : ["./config/*"],
+      "@hooks/*"                : ["./hooks/*"],
+      "@interface/*"            : ["./interface/*"],
+      "@library/*"              : ["./library/*"],
+      "@scripts/*"              : ["./scripts/*"]
+    }
+  },
+  "include"         : ["**/*.ts", "**/*.tsx", "**/*.d.ts", "next-env.d.ts", "next.config.ts", ".next/types/**/*.ts"],
+  "exclude"         : ["dist", "build", "node_modules"]
+}
