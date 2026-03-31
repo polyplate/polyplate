@@ -1,0 +1,69 @@
+{
+  "private"           : true,
+  "name"              : "@polyplate/database",
+  "description"       : "Reusable database presets for consistent schema design, type-safe queries, and scalable database workflows across projects.",
+  "keywords"          : ["polyplate", "prisma", "postgresql", "type-safe", "orm", "schema", "preset", "database-tools", "database", "workflows"],
+  "license"           : "MIT",
+  "homepage"          : "https://polyplate.io/",
+  "version"           : "0.0.1",
+
+  "author"            : {
+    "name"  : "Selçuk Çukur",
+    "email" : "hello@selcukcukur.me",
+    "url"   : "https://selcukcukur.me"
+  },
+
+  "bugs"              : {
+    "email" : "security@polyplate.io",
+    "url"   : "https://github.com/polyplate/polyplate/issues"
+  },
+
+  "scripts"           : {
+    "clean"     : "rimraf node_modules dist .turbo",
+    "generate"  : "npx prisma generate",
+    "push"      : "npx prisma db push",
+    "studio"    : "npx prisma studio",
+    "format"    : "npx prisma format",
+    "sync"      : "npx prisma generate && npx prisma db push"
+  },
+
+  "main"              : "./dist/index.mjs",
+  "module"            : "./dist/index.mjs",
+  "types"             : "./dist/index.d.ts",
+
+  "dependencies"      : {
+    "@obvia/utilities"              : "^0.0.4",
+    "@prisma/adapter-pg"            : "catalog:db",
+    "@prisma/client"                : "catalog:db",
+    "@prisma/extension-accelerate"  : "catalog:db",
+    "@prisma/client-runtime-utils"  : "catalog:db",
+    "@prisma/config"                : "catalog:db"
+  },
+  "devDependencies"   : {
+    "@types/node"                   : "catalog:type",
+    "@types/pg"                     : "^8.18.0",
+    "prisma"                        : "catalog:db",
+    "typescript"                    : "catalog:base"
+  },
+
+  "exports"           : {
+    "."             : "./src/index.ts",
+    "./browser"     : "./src/client/index.ts",
+    "./client"      : "./src/client/client.ts",
+    "./edge"        : "./src/client/edge.ts"
+  },
+
+  "publishConfig"     : {
+    "access"    : "public"
+  },
+  "publisher"         : {
+    "type"      : "github",
+    "user"      : "polyplate",
+    "repo"      : "polyplate"
+  },
+  "repository"        : {
+    "type"      : "git",
+    "url"       : "git+https://github.com/polyplate/polyplate.git",
+    "directory" : "packages/database"
+  }
+}
