@@ -1,0 +1,66 @@
+{
+  "private"           : true,
+  "name"              : "@polyplate/translation",
+  "description"       : "Polyplate translation presets and localization utilities for building scalable, type-safe, and framework-agnostic internationalization workflows.",
+  "keywords"          : ["polyplate", "translation", "i18n", "localization", "internationalization", "multi-language", "type-safe"],
+  "license"           : "MIT",
+  "homepage"          : "https://polyplate.io/",
+  "version"           : "0.0.1",
+
+  "author"            : {
+    "name"  : "Selçuk Çukur",
+    "email" : "hello@selcukcukur.me",
+    "url"   : "https://selcukcukur.me"
+  },
+
+  "bugs"              : {
+    "email" : "security@polyplate.io",
+    "url"   : "https://github.com/polyplate/polyplate/issues"
+  },
+
+  "scripts"           : {
+    "clean" : "rimraf node_modules dist .turbo"
+  },
+
+  "main"              : "./dist/index.mjs",
+  "module"            : "./dist/index.mjs",
+  "types"             : "./dist/index.d.ts",
+
+  "dependencies"      : {
+    "@obvia/utilities"              : "^0.0.4",
+    "next"                          : "catalog:base",
+    "react"                         : "catalog:base",
+    "next-intl"                     : "^4.8.3"
+  },
+  "devDependencies"   : {
+    "@obvia/presets"                : "^0.0.2",
+    "@types/node"                   : "catalog:type",
+    "@types/react"                  : "catalog:type",
+    "typescript"                    : "catalog:base"
+  },
+
+  "exports"           : {
+    "."             : "./src/index.ts",
+    "./server"      : "./src/server.ts",
+    "./navigation"  : "./src/translation/navigation.ts",
+    "./plugin"      : "./src/translation/plugin.ts",
+    "./proxy"       : "./src/translation/proxy.ts",
+    "./request"     : "./src/translation/request.ts",
+    "./routing"     : "./src/translation/routing.ts",
+    "./messages"    : "./src/messages/en.json"
+  },
+
+  "publishConfig"     : {
+    "access"    : "public"
+  },
+  "publisher"         : {
+    "type"      : "github",
+    "user"      : "polyplate",
+    "repo"      : "polyplate"
+  },
+  "repository"        : {
+    "type"      : "git",
+    "url"       : "git+https://github.com/polyplate/polyplate.git",
+    "directory" : "packages/translation"
+  }
+}
