@@ -3,8 +3,8 @@ import {
   type NextRequest
 } from "next/server"
 
-import { resolveProxy } from "@library/proxy/utility"
-import { parseProxy } from "@obvia/utilities/next"
+import { parseProxy, resolveProxy } from "@obvia/utilities/next"
+import { proxyConfig } from "@library/proxy/config"
 
 /** Proxy configuration */
 export const config = {
@@ -42,5 +42,5 @@ export default async function proxy(request: NextRequest, event: NextFetchEvent)
   const context = parseProxy(request)
 
   // Resolve middleware based on parsed request metadata
-  return resolveProxy(request, event, context)
+  return resolveProxy(request, event, context, proxyConfig)
 }

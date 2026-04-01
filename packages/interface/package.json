@@ -28,7 +28,7 @@
 
   "dependencies"      : {
     "@polyplate/translation"    : "workspace:*",
-    "@obvia/utilities"          : "^0.0.11",
+    "@obvia/utilities"          : "^0.0.12",
     "lucide-react"              : "^0.577.0",
     "next"                      : "catalog:base",
     "next-themes"               : "^0.4.6",

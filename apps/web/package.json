@@ -37,7 +37,7 @@
     "@polyplate/database"     : "workspace:*",
     "@polyplate/interface"    : "workspace:*",
     "@polyplate/translation"  : "workspace:*",
-    "@obvia/utilities"        : "^0.0.11",
+    "@obvia/utilities"        : "^0.0.12",
     "@obvia/fonts"            : "^1.3.0",
     "cmdk"                    : "^1.1.1",
     "motion"                  : "^12.38.0",
