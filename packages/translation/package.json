@@ -27,7 +27,7 @@
   "types"             : "./dist/index.d.ts",
 
   "dependencies"      : {
-    "@obvia/utilities"              : "^0.0.10",
+    "@obvia/utilities"              : "^0.0.11",
     "next"                          : "catalog:base",
     "react"                         : "catalog:base",
     "next-intl"                     : "^4.8.3"
